@@ -4,8 +4,13 @@
              xmlns:local="clr-namespace:Workflow"
              x:Class="Workflow.MainPage">
 
-	<Label Text="Welcome to Xamarin Forms!" 
+    <StackLayout>
+        <Label Text="Welcome to Xamarin Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
+        <Button Command="{Binding NavigationCommand}" CommandParameter="0" Text="SecondButton" />
+        <Button Command="{Binding NavigationCommand}" CommandParameter="1" Text="ThirdButton" />
+    </StackLayout>
+	
 
 </ContentPage>

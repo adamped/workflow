@@ -9,11 +9,18 @@ namespace Workflow
 {
 	public partial class App : Application
 	{
+		public static App Instance => (App)Current;
+
+		public readonly INavigationService NavigationService;
+		public readonly IController Controller;
+
 		public App ()
 		{
 			InitializeComponent();
+			NavigationService = new NavigationService(new MainPage());
+			
+			Controller = new Controller(NavigationService);
 
-			MainPage = new Workflow.MainPage();
 		}
 
 		protected override void OnStart ()
