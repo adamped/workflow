@@ -10,9 +10,10 @@ namespace Workflow
 {
 	public class MainViewModel
 	{
+		IController _controller => App.Instance.Controller;
 		public Command<string> NavigationCommand => new Command<string>((stateId) =>
 		{
-			App.Instance.Controller.Complete(new Result() { StateId = Convert.ToInt32(stateId) });
+			_controller.Complete(new Result() { StateId = Convert.ToInt32(stateId) });
 		});
 	}
 
